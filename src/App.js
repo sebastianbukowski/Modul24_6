@@ -4,11 +4,11 @@ import PlayersList from './components/PlayersList/PlayersList';
 import AddPlayer from './components/AddPlayer/AddPlayer';
 
 class App extends Component {
-  constructor() {
-    super();
+  	constructor() {
+    	super();
  
-    this.state = {
-      players: []
+    	this.state = {
+     		players: []
 		}
 	}
 	
@@ -23,13 +23,20 @@ class App extends Component {
 		});
 	};
 
-onPlayerAdd = (playerName) => {
-  const newPlayer = {
-    name: playerName,
-    score: 0,
-  }
+	onPlayerAdd = (playerName) => {
+  		const newPlayer = {
+    	name: playerName,
+    	score: 0,
+  	}
 		this.setState({
 			players: [...this.state.players, newPlayer]
+		});
+	};
+	onPlayerRemove = (i) => {
+		this.setState({
+			players: this.state.players.filter((player, id) => {
+				if (i !== id) return player;
+			})
 		});
 	};
 

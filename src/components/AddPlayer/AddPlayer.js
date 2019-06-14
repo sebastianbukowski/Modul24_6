@@ -5,8 +5,10 @@ const AddPlayer = (props) => {
     let input;
     const onSubmit = (event) => {
         event.preventDefault();
-        props.onPlayerAdd(input.value);
-        input.value = '';
+        if(input.value !== '') {
+            props.onPlayerAdd(input.value);
+            input.value = '';
+        } else return
       }
    return (
         <form className="AddPlayer" onSubmit={onSubmit}>
